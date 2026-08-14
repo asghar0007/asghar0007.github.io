@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asghar Ahmed - Mission Critical Infrastructure</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="locked">
+    
+    <!-- 1. Interactive Terminal Landing (Mission Control Lock) -->
+    <section id="terminal-landing" class="full-screen-section">
+        
+        <div class="terminal-window glass" style="width: 100%; max-width: 900px; height: 65vh; display: flex; flex-direction: column;">
+            <div class="terminal-header">
+                <span class="title">Deep Space Network // Uplink Terminal</span>
+                <div class="status-dots">
+                    <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                </div>
+            </div>
+            
+            <div class="terminal-body" id="interactive-terminal-content" style="flex: 1; overflow-y: auto; font-size: 1.1rem; line-height: 1.6;">
+                <!-- Content injected by JS -->
+            </div>
+            
+            <div class="terminal-input-line" style="display: flex; padding: 0 1.5rem 1.5rem 1.5rem; align-items: center; font-family: var(--font-mono); font-size: 1.1rem;">
+                <span style="color: var(--primary-light); margin-right: 15px; white-space: nowrap;">flight-director@mission-control:~$</span>
+                <input type="text" id="terminal-input" autocomplete="off" spellcheck="false" style="flex: 1; background: transparent; border: none; outline: none; color: white; font-family: inherit; font-size: inherit;">
+            </div>
+        </div>
+        
+        <div class="mt-4 text-center" style="position: relative; z-index: 10;">
+            <p class="text-muted" style="font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase;">Awaiting Command. Type <strong style="color: var(--primary-light);">help</strong> for authorization protocols. <br><br> <a href="#" onclick="appState.handleCommand('launch'); return false;" style="color: var(--accent); text-decoration: none;">[ Bypass Terminal & View Portfolio ]</a></p>
+        </div>
+    </section>
+
+    <!-- Main Portfolio Content -->
+    <div id="portfolio-content">
+        
+        <!-- Header / Navigation -->
+        <header class="portfolio-nav glass-nav">
+            <div class="nav-brand">
+                <i class="fas fa-satellite-dish logo-accent"></i> Asghar Ahmed
+            </div>
+            <div class="nav-links">
+                <a href="#mission">Mission Overview</a>
+                <a href="#architecture">System Architecture</a>
+                <a href="#telemetry">Telemetry</a>
+                <a href="#resume">Flight Log (Resume)</a>
+                <a href="#" onclick="window.print()" class="btn primary-btn btn-sm" style="margin-left: 2rem; border: 1px solid var(--accent);"><i class="fas fa-file-pdf"></i> Download Log</a>
+            </div>
+        </header>
+
+        <!-- Intro Section -->
+        <section id="mission" class="content-section">
+            <div class="container text-center">
+                <h1 class="resume-name" style="margin-bottom: 1rem;">Asghar Ahmed</h1>
+                <h2 class="text-cyan" style="font-size: 1.2rem; font-weight: 600; letter-spacing: 5px; margin-bottom: 2rem;">Mission Critical Infrastructure Engineer</h2>
+                <p class="text-muted mx-auto" style="max-width: 800px; font-size: 1.1rem; line-height: 1.8; font-family: var(--font-mono);">
+                    Systems operate in hostile environments. Reliability is not optional. With over 12 years of experience, I architect, automate, and operate high-availability production environments. From automated payload delivery to cluster orchestration, I build the engines that keep missions online.
+                </p>
+                <div class="landing-stats" style="margin-top: 4rem; justify-content: center;">
+                    <div class="stat"><i class="fas fa-satellite"></i> <span>Zero Downtime Operations</span></div>
+                    <div class="stat"><i class="fas fa-rocket"></i> <span>Automated Payload Delivery</span></div>
+                    <div class="stat"><i class="fas fa-shield-alt"></i> <span>Fault Tolerant Architecture</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expertise Showcase: Infrastructure as Code -->
+        <section id="expertise" class="content-section alternate-bg">
+            <div class="container">
+                <div class="showcase-grid">
+                    <div class="showcase-text">
+                        <div class="section-badge">Sequence 01. Orbital Infrastructure</div>
+                        <h2>Infrastructure as Code</h2>
+                        <p class="text-muted">I use Terraform and Ansible to declare immutable infrastructure. This eliminates configuration drift and allows entire environments to be mathematically proven and deployed in minutes.</p>
+                        <ul class="feature-list mt-4">
+                            <li><i class="fas fa-check"></i> Automated Compute Provisioning</li>
+                            <li><i class="fas fa-check"></i> Immutable Server Configuration</li>
+                            <li><i class="fas fa-check"></i> Version Controlled Environments</li>
+                        </ul>
+                        <button class="btn primary-btn mt-4" onclick="appState.simulateVMProvision()">Initiate Terraform Sequence</button>
+                    </div>
+                    <div class="showcase-visual">
+                        <div class="terminal glass text-left">
+                            <div class="terminal-header">
+                                <span class="title">main.tf // Provisioning Protocol</span>
+                            </div>
+                            <div class="terminal-body" id="vm-terminal-output" style="min-height: 250px;">
+<span style="color: #C678DD;">resource</span> <span style="color: var(--primary-light);">"libvirt_domain"</span> <span style="color: #E5C07B;">"prod_node"</span> {
+  name   = <span style="color: var(--primary-light);">"prod-app-01"</span>
+  memory = <span style="color: #D19A66;">8192</span>
+  vcpu   = <span style="color: #D19A66;">4</span>
+
+  network_interface {
+    network_name = <span style="color: var(--primary-light);">"production_net"</span>
+  }
+}
+<br><span style="color: var(--text-muted);">// Awaiting command to execute.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expertise Showcase: CI/CD -->
+        <section class="content-section">
+            <div class="container">
+                <div class="showcase-grid reverse">
+                    <div class="showcase-text">
+                        <div class="section-badge">Sequence 02. Payload Delivery</div>
+                        <h2>Automated Pipelines</h2>
+                        <p class="text-muted">I build robust pipelines that test, secure, and deploy applications automatically. By integrating Docker registries and Kubernetes manifests, I ensure that code moves from repository to production smoothly and safely.</p>
+                        
+                        <div class="pipeline-stages mt-4" style="background: var(--bg-panel); padding: 2rem;">
+                            <div class="stage" id="stage-checkout">
+                                <div class="stage-icon"><i class="fas fa-code-branch"></i></div>
+                            </div>
+                            <div class="stage-line"></div>
+                            <div class="stage" id="stage-test">
+                                <div class="stage-icon"><i class="fas fa-vial"></i></div>
+                            </div>
+                            <div class="stage-line"></div>
+                            <div class="stage" id="stage-build">
+                                <div class="stage-icon"><i class="fas fa-box"></i></div>
+                            </div>
+                            <div class="stage-line"></div>
+                            <div class="stage" id="stage-deploy">
+                                <div class="stage-icon"><i class="fas fa-satellite"></i></div>
+                            </div>
+                        </div>
+                        
+                        <button class="btn primary-btn mt-4" id="cicd-btn" onclick="appState.simulatePipeline()">Trigger Payload Release</button>
+                    </div>
+                    <div class="showcase-visual">
+                        <div class="terminal glass text-left">
+                            <div class="terminal-header">
+                                <span class="title">gitlab-runner // Telemetry</span>
+                            </div>
+                            <div class="terminal-body" id="cicd-terminal-output" style="min-height: 250px; font-size: 0.85rem;">
+                                Waiting for payload trigger...
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expertise Showcase: Observability -->
+        <section id="telemetry" class="content-section alternate-bg">
+            <div class="container">
+                <div class="showcase-grid">
+                    <div class="showcase-text">
+                        <div class="section-badge">Sequence 03. System Telemetry</div>
+                        <h2>Observability & Alerting</h2>
+                        <p class="text-muted">You can't manage what you can't measure. I deploy Prometheus and Grafana stacks to provide deep visibility into cluster health and application latency. Automated alerting ensures anomalies are handled before catastrophic failure.</p>
+                        <button class="btn warning-btn mt-4" id="incident-btn" onclick="appState.triggerIncident()"><i class="fas fa-bolt"></i> Simulate Traffic Anomaly</button>
+                    </div>
+                    <div class="showcase-visual">
+                        <div class="monitoring-dashboard glass" style="padding: 2rem;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 1.5rem; border-bottom: 1px solid var(--border-color); padding-bottom: 1rem;">
+                                <strong style="font-family: var(--font-mono); letter-spacing: 2px;">MISSION TELEMETRY</strong>
+                                <span class="badge healthy" id="monitoring-status-badge">NOMINAL</span>
+                            </div>
+                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                                <div class="metric-card glass" style="padding: 1rem; border-radius: 0;">
+                                    <h4 style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono);">P99 LATENCY</h4>
+                                    <div class="metric-value" id="metric-latency" style="font-size: 2rem; font-family: var(--font-mono); margin-top: 0.5rem;">84 ms</div>
+                                    <div class="chart-mockup lat-chart" id="chart-lat" style="height: 50px;"></div>
+                                </div>
+                                <div class="metric-card glass" style="padding: 1rem; border-radius: 0;">
+                                    <h4 style="font-size: 0.75rem; color: var(--text-muted); font-family: var(--font-mono);">ERROR RATE</h4>
+                                    <div class="metric-value" id="metric-err" style="font-size: 2rem; font-family: var(--font-mono); margin-top: 0.5rem;">0.02%</div>
+                                    <div class="chart-mockup cpu-chart" style="height: 50px;"></div>
+                                </div>
+                            </div>
+                            <div class="workflow-steps mt-4" id="incident-workflow" style="text-align: left; font-family: var(--font-mono); font-size: 0.85rem; min-height: 80px; color: var(--text-muted);">
+                                > Monitoring systems nominal.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Architecture -->
+        <section id="architecture" class="content-section">
+            <div class="container text-center">
+                <div class="section-badge">Sequence 04. Design Protocol</div>
+                <h2 style="margin-bottom: 4rem;">System Architecture Map</h2>
+                <div class="architecture-diagram glass" style="padding: 4rem; display: inline-flex; flex-direction: column; align-items: center; max-width: 900px;">
+                    <div class="arch-node internet">External Gateway (Cloudflare / Edge)</div>
+                    <div class="arch-line vertical"></div>
+                    <div class="arch-node lb">Traffic Director (Nginx/HAProxy)</div>
+                    <div class="arch-line vertical"></div>
+                    
+                    <div class="arch-cluster">
+                        <div class="cluster-title">RKE2 / K3s Container Orchestration</div>
+                        <div class="pod-row">
+                            <div class="arch-pod">Frontend Nodes</div>
+                            <div class="arch-pod">Backend APIs</div>
+                            <div class="arch-pod">Worker Nodes</div>
+                        </div>
+                    </div>
+                    
+                    <div class="arch-line vertical"></div>
+                    <div style="display: flex; gap: 3rem;">
+                        <div class="arch-node db">Database Cluster (MariaDB)</div>
+                        <div class="arch-node storage">Persistent Storage (Longhorn)</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formal Resume Section -->
+        <section id="resume" class="content-section alternate-bg">
+            <div class="container">
+                <div class="resume-container glass" style="text-align: left; max-width: 1000px; margin: 0 auto; padding: 5rem;">
+                    
+                    <div class="resume-body" style="display: grid; grid-template-columns: 2fr 1fr; gap: 5rem;">
+                        <div class="resume-main">
+                            <section class="resume-section">
+                                <h3 style="color: var(--primary-light); font-size: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 2rem;">Professional Flight Log (Experience)</h3>
+                                
+                                <div class="experience-item" style="margin-bottom: 3rem;">
+                                    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 0.5rem;">
+                                        <h4 style="font-size: 1.4rem; margin: 0; text-transform: none; letter-spacing: 0;">Senior DevOps & Infrastructure Engineer</h4>
+                                    </div>
+                                    <p class="text-muted" style="margin-bottom: 1.5rem; font-family: var(--font-mono); font-size: 0.9rem;">Specializing in highly available IPTV and ISP infrastructures.</p>
+                                    <ul style="padding-left: 1.2rem; color: var(--text-main); line-height: 1.8;">
+                                        <li style="margin-bottom: 0.8rem;">Managed and scaled infrastructure supporting IPTV, Internet, and VPOP services, maintaining 99.99% uptime.</li>
+                                        <li style="margin-bottom: 0.8rem;">Operated complex Linux and virtualization (KVM) environments at enterprise scale.</li>
+                                        <li style="margin-bottom: 0.8rem;">Designed, deployed, and maintained highly available Kubernetes workloads using RKE2, K3s, and Rancher.</li>
+                                        <li style="margin-bottom: 0.8rem;">Implemented end-to-end GitLab CI/CD pipelines to automate application testing and delivery.</li>
+                                        <li style="margin-bottom: 0.8rem;">Built comprehensive observability stacks using Prometheus, Grafana, and Alertmanager for proactive incident response.</li>
+                                        <li style="margin-bottom: 0.8rem;">Managed distributed, persistent storage solutions for stateful workloads using Longhorn.</li>
+                                    </ul>
+                                </div>
+
+                                <h3 style="color: var(--primary-light); font-size: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 2rem;">Career Evolution</h3>
+                                <div class="interactive-timeline">
+                                    <div class="timeline" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                                        <div class="timeline-item active" onclick="appState.showTimelineDetail('devops', this)">
+                                            <div class="timeline-dot"></div>
+                                            <div class="timeline-content">Senior DevOps & Observability</div>
+                                        </div>
+                                        <div class="timeline-item" onclick="appState.showTimelineDetail('containers', this)">
+                                            <div class="timeline-dot"></div>
+                                            <div class="timeline-content">Containerization & Kubernetes</div>
+                                        </div>
+                                        <div class="timeline-item" onclick="appState.showTimelineDetail('infra', this)">
+                                            <div class="timeline-dot"></div>
+                                            <div class="timeline-content">Systems & Infrastructure Engineering</div>
+                                        </div>
+                                        <div class="timeline-item" onclick="appState.showTimelineDetail('linux', this)">
+                                            <div class="timeline-dot"></div>
+                                            <div class="timeline-content">Linux & Virtualization Administration</div>
+                                        </div>
+                                    </div>
+                                    <div id="timeline-detail" class="timeline-detail glass mt-4" style="padding: 2rem; border-left: 2px solid var(--accent); font-size: 0.95rem; line-height: 1.6;">
+                                        <strong>Senior DevOps & Observability:</strong> Built complete end-to-end CI/CD pipelines with GitLab. Implemented Infrastructure as Code using Terraform/Ansible. Setup comprehensive monitoring and alerting using Prometheus and Grafana. Focus on SRE practices.
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        
+                        <aside class="resume-sidebar">
+                            <section class="resume-section">
+                                <h3 style="color: var(--primary-light); font-size: 1rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 2rem;">Technical Parameters</h3>
+                                
+                                <div class="skill-category" style="margin-bottom: 2.5rem;">
+                                    <h4 style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; font-family: var(--font-mono);">CONTAINERS & ORCHESTRATION</h4>
+                                    <div class="tags" style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                                        <span class="tag">Kubernetes</span>
+                                        <span class="tag">RKE2</span>
+                                        <span class="tag">K3s</span>
+                                        <span class="tag">Docker</span>
+                                        <span class="tag">Rancher</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="skill-category" style="margin-bottom: 2.5rem;">
+                                    <h4 style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; font-family: var(--font-mono);">INFRASTRUCTURE & IAC</h4>
+                                    <div class="tags" style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                                        <span class="tag">Linux</span>
+                                        <span class="tag">KVM</span>
+                                        <span class="tag">Terraform</span>
+                                        <span class="tag">Ansible</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="skill-category" style="margin-bottom: 2.5rem;">
+                                    <h4 style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; font-family: var(--font-mono);">CI/CD & OBSERVABILITY</h4>
+                                    <div class="tags" style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                                        <span class="tag">GitLab CI</span>
+                                        <span class="tag">Prometheus</span>
+                                        <span class="tag">Grafana</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="skill-category" style="margin-bottom: 2.5rem;">
+                                    <h4 style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem; font-family: var(--font-mono);">WEB, STORAGE & DB</h4>
+                                    <div class="tags" style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+                                        <span class="tag">Nginx / HAProxy</span>
+                                        <span class="tag">Longhorn</span>
+                                        <span class="tag">MariaDB / MSSQL</span>
+                                        <span class="tag">cPanel/WHM</span>
+                                    </div>
+                                </div>
+                            </section>
+                        </aside>
+                    </div>
+                    
+                    <footer class="resume-footer text-center mt-4 pt-4" style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 4rem; margin-top: 4rem;">
+                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem; letter-spacing: 3px;">Initiate Contact Protocol</h3>
+                        <p class="text-muted mb-4" style="font-size: 1.1rem; margin-bottom: 3rem;">Ready to build highly reliable aerospace-grade infrastructure?</p>
+                        <div class="contact-buttons" style="display: flex; justify-content: center; gap: 1.5rem;">
+                            <a href="mailto:asghar.ahmed78692@gmail.com" class="btn primary-btn"><i class="fas fa-envelope"></i> Transmit Data</a>
+                            <a href="https://www.linkedin.com/in/asghar-ahmed-a99a3658/" target="_blank" class="btn outline-btn"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                            <a href="https://github.com/asghar0007" target="_blank" class="btn outline-btn"><i class="fab fa-github"></i> GitHub</a>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </section>
+
+    </div>
+    
+    <script src="js/script.js"></script>
+</body>
+</html>
