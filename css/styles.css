@@ -437,8 +437,53 @@ h1, h2, h3, h4 {
 }
 
 @media (max-width: 768px) {
-    .showcase-grid { grid-template-columns: 1fr; gap: 3rem; }
+    /* Layout & Spacing */
+    .container { padding: 0 1rem; }
+    .content-section { padding: 4rem 0; }
+    
+    /* Navigation */
+    .glass-nav { flex-direction: column; padding: 1rem; }
+    .nav-brand { margin-bottom: 1rem; font-size: 1.1rem; }
+    .nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.8rem; width: 100%; }
+    .nav-links a { margin-left: 0; font-size: 0.75rem; text-align: center; }
+    .nav-links .btn { margin-left: 0 !important; width: 100%; margin-top: 0.5rem; }
+
+    /* Intro */
+    .resume-name { font-size: 2.5rem; letter-spacing: 3px; }
+    .landing-stats { flex-direction: column; gap: 1rem; align-items: flex-start; }
+    h2 { font-size: 1.8rem !important; margin-bottom: 1rem !important; }
+
+    /* Showcase Grids */
+    .showcase-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .showcase-grid.reverse { direction: ltr; }
-    .landing-stats { flex-direction: column; gap: 1.5rem; text-align: left; }
-    .resume-name { font-size: 3rem; letter-spacing: 5px; }
+
+    /* Telemetry / Dashboard */
+    .monitoring-dashboard > div:nth-child(2) { grid-template-columns: 1fr !important; }
+    
+    /* Architecture Diagram */
+    .architecture-diagram { 
+        padding: 1.5rem !important; 
+        width: 100%; 
+        overflow-x: auto; /* allows scrolling if still too wide */
+    }
+    .arch-node { min-width: 100%; padding: 0.75rem 1rem; font-size: 0.75rem; }
+    .architecture-diagram > div[style*="display: flex"] { flex-direction: column; gap: 1rem !important; }
+    .pod-row { flex-direction: column; gap: 0.5rem; }
+
+    /* Resume Section */
+    .resume-body { grid-template-columns: 1fr !important; gap: 3rem !important; }
+    .resume-container { padding: 1.5rem !important; }
+    
+    /* Pipeline */
+    .pipeline-stages { padding: 1rem; overflow-x: auto; justify-content: flex-start; }
+    .stage-icon { width: 40px; height: 40px; font-size: 1rem; }
+    
+    /* Terminal Landing */
+    .terminal-header .title { font-size: 0.65rem; }
+    .terminal-input-line { flex-wrap: wrap; }
+    .terminal-input-line span { margin-bottom: 0.5rem; width: 100%; white-space: normal; }
+    
+    /* Footer */
+    .contact-buttons { flex-direction: column; width: 100%; }
+    .contact-buttons .btn { width: 100%; }
 }
