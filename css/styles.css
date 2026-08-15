@@ -237,6 +237,32 @@ h1, h2, h3, h4 {
 }
 .landing-stats .stat i { color: var(--accent); font-size: 1.2rem; }
 
+/* Company Logos */
+.company-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2.5rem;
+    align-items: center;
+}
+.company-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    opacity: 0.6;
+}
+.company-link:hover {
+    color: var(--text-main);
+    opacity: 1;
+    text-shadow: 0 0 15px rgba(255,255,255,0.4);
+    transform: translateY(-2px);
+}
+
 /* Showcase Grid */
 .showcase-grid {
     display: grid;
