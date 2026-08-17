@@ -237,30 +237,58 @@ h1, h2, h3, h4 {
 }
 .landing-stats .stat i { color: var(--accent); font-size: 1.2rem; }
 
-/* Company Logos */
-.company-logos {
+/* Company Badges */
+.company-badge {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2.5rem;
     align-items: center;
-}
-.company-link {
-    color: var(--text-main);
-    text-decoration: none;
-    font-family: var(--font-sans);
-    font-weight: 700;
-    font-size: 1.1rem;
-    letter-spacing: 2px;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1.25rem 1rem;
+    background: rgba(11, 61, 145, 0.05);
+    border: 1px solid rgba(74, 144, 226, 0.2);
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    font-weight: 600;
     text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
     transition: all 0.3s ease;
-    opacity: 0.85;
+    position: relative;
+    overflow: hidden;
 }
-.company-link:hover {
+
+.company-badge::before {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 50%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(74,144,226,0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.company-badge:hover::before {
+    left: 100%;
+}
+
+.company-badge:hover {
+    background: rgba(11, 61, 145, 0.2);
+    border-color: var(--primary-light);
     color: var(--text-main);
+    box-shadow: 0 0 20px rgba(74, 144, 226, 0.2);
+    transform: translateY(-3px);
+}
+
+.company-badge i {
+    color: var(--accent);
+    font-size: 1.1rem;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.company-badge:hover i {
     opacity: 1;
-    text-shadow: 0 0 15px rgba(255,255,255,0.4);
-    transform: translateY(-2px);
+    text-shadow: 0 0 10px var(--accent);
 }
 
 /* Showcase Grid */
