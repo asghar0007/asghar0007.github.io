@@ -246,7 +246,7 @@ h1, h2, h3, h4 {
     align-items: center;
 }
 .company-link {
-    color: var(--text-muted);
+    color: var(--text-main);
     text-decoration: none;
     font-family: var(--font-sans);
     font-weight: 700;
@@ -254,7 +254,7 @@ h1, h2, h3, h4 {
     letter-spacing: 2px;
     text-transform: uppercase;
     transition: all 0.3s ease;
-    opacity: 0.6;
+    opacity: 0.85;
 }
 .company-link:hover {
     color: var(--text-main);
